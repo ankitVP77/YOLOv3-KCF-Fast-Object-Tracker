@@ -16,6 +16,10 @@ I have also added an optional --object flag in case you want to change the type 
 
 Preferably make sure that only one object of a kind is present in a video. The code cannot properly track multiple instances of the same object.<br>
 
+An output video will automatically be created in the same directory where the script was run from.
+
+**PLEASE NOTE THAT THE VIDEO SPEED RECIEVED DURING HIGHGUI OUTPUT IS PURELY BASED ON THE LOCAL MACHINE'S COMPUTATIONAL POWER LIKE CPU/GPU**
+
 **YOU CAN USE THE 'q' KEY ON THE KEYBOARD AT ANYTIME TO TERMINATE THE SCRIPT AND CLOSE ANY HIGHGUI WINDOWS** 
 
 ## Methodology 
@@ -26,3 +30,9 @@ But even with that the inference is slow on videos so I decided to use object tr
 In conjunction I am using a YOLO detector to first detect the object in one frame of the video and next track it across multiple frames using KCF. When there is occlusion or scale change of any kind, its highly likely that the KCF will fail. At that moment YOLO detector is used to reestablish the bounding box around the object and KCF is reinitialized to track the object again.<br>
 
 When KCF tracks the object the speed of tracking is drastically improved as seen by the fps counter. So where YOLO only trackers take nearly 7 mins to process a single minute of video for tracking, a combination of YOLO detection and KCF tracking takes just 4 minutes.
+
+## Outputs
+**Please read the readme file in the output folder for rights issues**<br>
+
+<img src="output/img1.png" width=500> <img src="output/img2.png" width=500> <img src="output/img3.png" width=500> <img src="output/img4.png" width=500>
+<img src="output/img5.png" width=500> <img src="output/img6.png" width=500>
