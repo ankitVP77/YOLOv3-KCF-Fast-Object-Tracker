@@ -7,7 +7,7 @@ YOLO object tracking is extremely slow when it comes detecting object in videos 
 - Python3
 - OpenCV (with highGUI install for real-time output)
 - YOLOv3 trained weights (available [here](https://pjreddie.com/media/files/yolov3.weights))
-- YOLOv3 config file (available in repo or [here](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg)
+- YOLOv3 config file (available in repo or [here](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg))
 - Coco dataset class labels list (available in repo)
 
 ## How to run script
