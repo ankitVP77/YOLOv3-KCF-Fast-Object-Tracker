@@ -12,7 +12,7 @@ YOLO object tracking is extremely slow when it comes detecting object in videos 
 ## How to run script
 In your command line(with installed libraries) type " python tracker.py --video (path to input video) ". Use python3 command if thats how you access python version 3.
 
-I have also added an optional --object flag in case you want to change the type of object to be detected in the video. BY DEFAULT THE OBJECT DETECTED WILL BE A SOCCER BALL/ FOOTBALL/ ANY SPORTS BALL. 
+I have also added an optional --object flag in case you want to change the type of object to be detected in the video. BY DEFAULT THE OBJECT DETECTED WILL BE A SOCCER BALL/ FOOTBALL/ ANY SPORTS BALL. Refer to the coco dataset names for a whole list of objects that can be tracked and make sure to use the same name in the command line argument
 
 Preferably make sure that only one object of a kind is present in a video. The code cannot properly track multiple instances of the same object.<br>
 
