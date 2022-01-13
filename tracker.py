@@ -1,8 +1,10 @@
 import cv2
+import numpy as np
 import argparse
 
 ap=argparse.ArgumentParser()
 ap.add_argument('-v','--video',required=True,help='Path to the input video file.')
+ap.add_argument('-c', '--cam', help='Flag to determine whether webcam should be used. Specify "Y" or "N"')
 ap.add_argument('-o','--object',default="sports ball",help='The name of the object class to detect')
 arg=vars(ap.parse_args())
 
@@ -73,7 +75,10 @@ def ytrack(frame,model,outv,timer):
     tbox,cframe=processndraw(frame,out,timer)
     return tbox,cframe
 
-cap=cv2.VideoCapture(arg['video'])
+if arg['cam']== "Y":
+    cap = cv2.VideoCapture(0)
+else:
+    cap=cv2.VideoCapture(arg['video'])
 outv=cv2.VideoWriter("Tracked-"+str(arg['video']),cv2.VideoWriter_fourcc(*'MP4V'),int(cap.get(5)),(int(cap.get(3)),int(cap.get(4))))
 
 count=0
