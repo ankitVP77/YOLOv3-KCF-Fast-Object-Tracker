@@ -23,7 +23,7 @@ tracker=cv2.TrackerKCF_create()
 
 def getoutputlayers(model):
     layernames=model.getLayerNames()
-    return [layernames[i[0]-1] for i in model.getUnconnectedOutLayers()]
+    return [layernames[i-1] for i in model.getUnconnectedOutLayers()]
 
 
 def processndraw(frame, out, timer):
@@ -51,7 +51,6 @@ def processndraw(frame, out, timer):
                     boxes.append([x, y, w, h])
     ind = cv2.dnn.NMSBoxes(boxes, confs, confth, nmsth)
     for i in ind:
-        i = i[0]
         box = boxes[i]
         cframe = frame.copy()
         fps = cv2.getTickFrequency() / (cv2.getTickCount() - timer)
@@ -79,7 +78,7 @@ if arg['cam']== "Y":
     cap = cv2.VideoCapture(0)
 else:
     cap=cv2.VideoCapture(arg['video'])
-outv=cv2.VideoWriter("Tracked-"+str(arg['video']),cv2.VideoWriter_fourcc(*'MP4V'),int(cap.get(5)),(int(cap.get(3)),int(cap.get(4))))
+outv=cv2.VideoWriter("Tracked-"+str(arg['video']),cv2.VideoWriter_fourcc(*'mp4v'),int(cap.get(5)),(int(cap.get(3)),int(cap.get(4))))
 
 count=0
 tflag=0
